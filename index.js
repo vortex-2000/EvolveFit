@@ -233,99 +233,6 @@ app.get('/users/new', async (req, res) => {
 })
 
 
-app.get('/main', async (req, res) => {
-
-    res.render('main');
-
-
-})
-
-app.post('/main', async (req, res) => {
-
-    const cal=parseInt(req.body.calorie);
-
-
-
-    const calh=cal+100;
-    const call=cal-100;
-
-
-
-
-
-            Item.find(   function(err, result){
-
-                if(err){
-                    res.send(err)
-                }
-                else{
-
-                    var ans=[];
-                    const arr3=[];
-
-                    const arr1=[];
-                    const arr2=[];
-
-                    const arr4=[];
-                    const arr5=[];
-
-
-                    for(i of result){
-
-
-                        if(i.calories>=call && i.calories<=calh){
-
-
-                            if(i.calories%1 ==0){
-
-                                if(i.protein <= i.calories*0.3 && i.protein >= i.calories*0.2)
-                                    arr1.push(i);
-                                else
-                                    arr2.push(i);
-
-
-
-                            }
-
-
-                            else if(i.calories%0.25 ==0){
-
-                                if(i.protein <= i.calories*0.3 && i.protein >= i.calories*0.2)
-                                    arr4.push(i);
-                                else
-                                    arr5.push(i);
-
-
-                            }
-
-
-
-
-                        }
-                        else{
-                            arr3.push(i);
-                        }
-
-
-
-
-                    }
-
-
-                    ans=arr1.concat(arr2,arr4,arr5,arr3);
-
-
-                    res.render('main2',{ans});
-                        //res.send(ans)
-                }
-
-                });
-
-
-
-})
-
-
 
 
 app.post('/users', async (req, res) => {
@@ -421,6 +328,114 @@ app.delete('/users/:id', async (req, res) => {
     const deleteduser = await User.findByIdAndDelete(id);
     res.redirect('/users');
 })
+
+
+app.get('/main', async (req, res) => {
+
+    res.render('main');
+
+
+})
+
+app.post('/main', async (req, res) => {
+
+    const cal=parseInt(req.body.calorie);
+
+
+
+    const calh=cal+100;
+    const call=cal-100;
+
+
+
+
+
+            Item.find(   function(err, result){
+
+                if(err){
+                    res.send(err)
+                }
+                else{
+
+                    var ans=[];
+                    const arr3=[];
+
+                    const arr1=[];
+                    const arr2=[];
+
+                    const arr4=[];
+                    const arr5=[];
+
+
+                    for(i of result){
+
+
+                        if(i.calories>=call && i.calories<=calh){
+
+
+                            if(i.calories%1 ==0){
+
+                                if(i.protein <= i.calories*0.3 && i.protein >= i.calories*0.2)
+                                    arr1.push(i);
+                                else
+                                    arr2.push(i);
+
+
+
+                            }
+
+
+                            else if(i.calories%0.25 ==0){
+
+                                if(i.protein <= i.calories*0.3 && i.protein >= i.calories*0.2)
+                                    arr4.push(i);
+                                else
+                                    arr5.push(i);
+
+
+                            }
+
+
+
+
+                        }
+                        else{
+                            arr3.push(i);
+                        }
+
+
+
+
+                    }
+
+
+                    ans=arr1.concat(arr2,arr4,arr5,arr3);
+
+                    var ansf=[];
+                    var c=0;
+
+                    for(k of ans){
+
+                        if(c==5)
+                            break;
+
+                        ansf.push(k);
+                        c++;
+
+                    }
+
+
+                    res.render('main2',{ansf});
+                        //res.send(ans)
+                }
+
+                });
+
+
+
+})
+
+
 
 
 
