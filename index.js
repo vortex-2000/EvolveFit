@@ -366,6 +366,12 @@ app.post('/main', async (req, res) => {
                     const arr4=[];
                     const arr5=[];
 
+                    const arr6=[];
+                    const arr7=[];
+
+                    const arr8=[];
+                    const arr9=[];
+
 
                     for(i of result){
 
@@ -396,11 +402,30 @@ app.post('/main', async (req, res) => {
                             }
 
 
-
-
                         }
                         else{
-                            arr3.push(i);
+
+                            if(i.calories%1 ==0){
+
+                                if(i.protein <= i.calories*0.3 && i.protein >= i.calories*0.2)
+                                    arr6.push(i);
+                                else
+                                    arr7.push(i);
+
+
+
+                            }
+
+
+                            else if(i.calories%0.25 ==0){
+
+                                if(i.protein <= i.calories*0.3 && i.protein >= i.calories*0.2)
+                                    arr8.push(i);
+                                else
+                                    arr9.push(i);
+
+
+                            }
                         }
 
 
@@ -409,7 +434,7 @@ app.post('/main', async (req, res) => {
                     }
 
 
-                    ans=arr1.concat(arr2,arr4,arr5,arr3);
+                    ans=arr1.concat(arr2,arr6,arr7,arr4,arr5,arr8,arr9);
 
                     var ansf=[];
                     var c=0;
@@ -426,7 +451,7 @@ app.post('/main', async (req, res) => {
 
 
                     res.render('main2',{ansf});
-                        //res.send(ans)
+                       // res.send(ansf)
                 }
 
                 });
@@ -434,7 +459,6 @@ app.post('/main', async (req, res) => {
 
 
 })
-
 
 
 
