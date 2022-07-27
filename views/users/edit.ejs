@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit user</title>
+</head>
+
+<body>
+    <h1>Edit user</h1>
+    <form action="/users/<%=user._id%>?_method=PUT" method="POST">
+
+        <label for="name">user Name</label>
+        <input type="text" name="name" id="name" placeholder="user name">
+
+
+        <label for="calorieRequirement">calorie requirement</label>
+        <input type="calorieRequirement" name="calorieRequirement" id="calorieRequirement" placeholder="calorieRequirement">
+
+
+
+        <br>
+        <% for(let it of meals){ %>
+
+            <input type="checkbox" id="p1" name="p1"  value="<%=it._id%>">
+            <label for="p1" > <%=it.name%></label><br>
+            <% } %>
+
+            <br>
+
+            <label for="p2"%> >Date:</label>
+    <input type="date" id="p2"  name="p2" >
+
+
+
+
+
+        <button>Submit</button>
+    </form>
+
+    <a href="/users/<%=user._id%>">Cancel</a>
+
+</body>
+
+</html>

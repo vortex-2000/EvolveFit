@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New item</title>
+</head>
+
+<body>
+    <h1>Add A item</h1>
+    <form action="/items" method="POST">
+        <label for="name">item Name</label>
+        <input type="text" name="name" id="name" placeholder="item name">
+
+        <label for="calories">calories </label>
+        <input type="number" step="0.001" id="calories" name="calories" placeholder="calories">
+
+        <label for="protein">protein</label>
+        <input type="number" step="0.001" id="protein" name="protein" placeholder="protein">
+
+        <label for="carb">Carbohydrate</label>
+        <input type="number" step="0.001" id="carb" name="carb" placeholder="carb">
+
+        <label for="fat">fat</label>
+        <input type="number" step="0.001" id="fat" name="fat" placeholder="fat">
+
+        <label for="itemWeight">weight</label>
+        <input type="itemWeight" step="0.001" id="itemWeight" name="itemWeight" placeholder="weight">
+
+
+        <label for="acceptedUnits">acceptedUnits</label>
+        <select name="acceptedUnits" id="acceptedUnits">
+            <% for(let category of categories){ %>
+            <option value="<%=category%>"><%=category%></option>
+            <% } %>
+        </select>
+        <button>Submit</button>
+    </form>
+
+</body>
+
+</html>

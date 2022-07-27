@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All meals</title>
+</head>
+
+<body>
+    <h1>meal!</h1>
+    <ul>
+        <% for(let meal of meals) { %>
+        <li><a href="/meals/<%=meal._id%>"><%= meal.name %></a> </li>
+        <% }%>
+    </ul>
+    <a href="/meals/new">New meal</a>
+
+    <a href="/meals">All meals</a>
+
+
+</body>
+
+</html>

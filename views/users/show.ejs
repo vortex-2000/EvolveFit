@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= user.name %></title>
+</head>
+
+<body>
+
+    <h1><%= user.name %></h1>
+    <ul>
+
+        <li>calorie Requirement: <%= user.calorieRequirement%></li>
+
+        <li>The following are the meal plans:</li>
+
+
+        <% for(let it of ans){ %>
+            <ul>
+                date:<%=it.sced%>
+                <% for(let j of it.mealPres){%>
+
+                    <li><%=j.name%>  </li>
+
+                <%}%>
+            </ul>
+
+        <% } %>
+
+    </ul>
+    <a href="/users">All users</a>
+    <a href="/users/<%=user._id%>/edit">Edit user</a>
+    <form action="/users/<%=user._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+
+</body>
+
+</html>

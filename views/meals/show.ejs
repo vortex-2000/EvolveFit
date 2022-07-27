@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= meal.name %></title>
+</head>
+
+<body>
+
+    <h1><%= meal.name %></h1>
+    <ul>
+
+        <li>category: <%= meal.category%></li>
+
+        <li>The following are the items:</li>
+        <!-- <li>Units: <a href="/meals?category=<%= meal.acceptedUnits%>"><%= meal.category%></a></li> -->
+
+        <% for(let it of ans){ %>
+
+            <ul><li><%=it.name%></li></ul>
+
+        <% } %>
+
+    </ul>
+    <a href="/meals">All meals</a>
+    <a href="/meals/<%=meal._id%>/edit">Edit meal</a>
+    <form action="/meals/<%=meal._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= item.name %></title>
+</head>
+
+<body>
+    <h1><%= item.name %></h1>
+    <ul>
+        <li>Calories: <%= item.calories%></li>
+        <li>protein: <%= item.protein%></li>
+        <li>carbohydrates: <%= item.carb%></li>
+        <li>fats: <%= item.fat%></li>
+        <li>weight: <%= item.itemWeight%></li>
+        <li>Units: <%= item.acceptedUnits%></li>
+        <!-- <li>Units: <a href="/items?category=<%= item.acceptedUnits%>"><%= item.category%></a></li> -->
+    </ul>
+    <a href="/items">All items</a>
+    <a href="/items/<%=item._id%>/edit">Edit item</a>
+    <form action="/items/<%=item._id%>?_method=DELETE" method="POST">
+        <button>Delete</button>
+    </form>
+
+</body>
+
+</html>

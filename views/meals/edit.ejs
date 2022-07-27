@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit meal</title>
+</head>
+
+<body>
+    <h1>Edit meal</h1>
+    <form action="/meals/<%=meal._id%>?_method=PUT" method="POST">
+
+        <label for="name">meal Name</label>
+        <input type="text" name="name" id="name" placeholder="meal name">
+
+
+        <label for="category">category</label>
+        <select name="category" id="category">
+            <% for(let categor of categories2){ %>
+            <option value="<%=categor%>"><%=categor%></option>
+            <% } %>
+        </select>
+
+
+
+        <br>
+        <% for(let it of items){ %>
+            <!-- <option value="<%=it%>"><%=it.name%></option> -->
+            <input type="checkbox" id="foodItems" name="foodItems" value="<%=it._id%>">
+            <label for="foodItems"> <%=it.name%></label><br>
+            <% } %>
+
+
+
+
+        <button>Submit</button>
+    </form>
+
+    <a href="/meals/<%=meal._id%>">Cancel</a>
+
+</body>
+
+</html>
